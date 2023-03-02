@@ -11,8 +11,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "monospace:size=14", "NotoColorEmoji:size=14"};
+static const char dmenufont[]       = "monospace:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -91,9 +91,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ 0,                       XF86XK_AudioRaiseVolume,      spawn,      SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+") },
-	{ 0,                       XF86XK_AudioLowerVolume,      spawn,      SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-") },
-	{ 0,                       XF86XK_AudioMute,      spawn,      SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") },
+	{ 0,                       XF86XK_AudioRaiseVolume,      spawn,      SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+; pkill -RTMIN+15 dwmblocks") },
+	{ 0,                       XF86XK_AudioLowerVolume,      spawn,      SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-; pkill -RTMIN+15 dwmblocks") },
+	{ 0,                       XF86XK_AudioMute,      spawn,      SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+15 dwmblocks") },
 	{ MODKEY,                       XK_w,      spawn,      {.v = (const char* []) { BROWSER, NULL } } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
